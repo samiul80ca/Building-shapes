@@ -1,0 +1,82 @@
+<html>
+<head>
+<script>
+var NS="http://www.w3.org/2000/svg";
+var color = ['green']
+
+function createHTMLElement(data) {
+	
+	var svgObj = document.getElementById('test');
+	
+	var shape =document.createElementNS(NS,"circle");
+		shape.setAttributeNS(null, "cx", 150);
+		shape.setAttributeNS(null, "cy", 150);
+		shape.setAttributeNS(null, "r",  data);
+		shape.setAttributeNS(null, "fill", color); 
+	   svgObj.append(shape);
+	
+}
+
+function createrect(data) {
+	
+	var svgObj = document.getElementById('test');
+	
+	var shape =document.createElementNS(NS,"rect");
+		shape.setAttributeNS(null, 'x', data);
+		shape.setAttributeNS(null, 'y', data);
+		shape.setAttributeNS(null, 'height', data);
+		shape.setAttributeNS(null, 'width', data);
+		shape.setAttributeNS(null, "fill", color); 
+	    svgObj.append(shape);
+
+       }
+
+function change() {
+	var data = document.form.textview.value
+   	createHTMLElement(data);
+}
+
+function square() {
+	var data = document.form.textview.value
+   	createrect(data);
+}
+
+function reload(){
+
+	location.reload();
+}
+</script>
+<style>
+body
+{
+background-color:#dceade;
+}
+h1
+{
+text-align:center;
+}
+form{
+text-align:center;
+}
+body{
+text-align:center;
+}
+</style>
+</head>
+<body>
+<h1 id="title">Homework-4 part-2_ID 500602494</h1>
+
+<svg id='test' width=300 height=300>
+</svg>
+
+<form name="form">
+	<input class="textview" name="textview"> 
+</form>
+
+<input type="submit" id="byBtn" value="Circle" onclick="change()"/>
+<input type="submit" id="byBtn" value="Square" onclick="square()"/>
+<input type="submit" id="byBtn" value="Clear" onclick="reload()"/>
+
+
+</body>
+</html>
